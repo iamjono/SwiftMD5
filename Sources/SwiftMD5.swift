@@ -16,29 +16,29 @@ public struct Digest {
     }
 }
 
-private func F(b: Word, _ c: Word, _ d: Word) -> Word {
+private func F(_ b: Word, _ c: Word, _ d: Word) -> Word {
     return (b & c) | ((~b) & d)
 }
 
-private func G(b: Word, _ c: Word, _ d: Word) -> Word {
+private func G(_ b: Word, _ c: Word, _ d: Word) -> Word {
     return (b & d) | (c & (~d))
 }
 
-private func H(b: Word, _ c: Word, _ d: Word) -> Word {
+private func H(_ b: Word, _ c: Word, _ d: Word) -> Word {
     return b ^ c ^ d
 }
 
-private func I(b: Word, _ c: Word, _ d: Word) -> Word {
+private func I(_ b: Word, _ c: Word, _ d: Word) -> Word {
     return c ^ (b | (~d))
 }
 
-private func rotateLeft(x: Word, by: Word) -> Word {
+private func rotateLeft(_ x: Word, by: Word) -> Word {
     return ((x << by) & 0xFFFFFFFF) | (x >> (32 - by))
 }
 
 // MARK: - Calculating a MD5 digest of bytes from bytes
 
-public func md5(bytes: [Byte]) -> Digest {
+public func md5(_ bytes: [Byte]) -> Digest {
     // Initialization
     let s: [Word] = [
         7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22, 7, 12, 17, 22,
@@ -199,7 +199,7 @@ public func md5(bytes: [Byte]) -> Digest {
 
 // MARK: - Encoding a MD5 digest of bytes to a string
 
-public func encodeMD5Digest(digest: [Byte]) -> String {
+public func encodeMD5Digest(_ digest: [Byte]) -> String {
     assert(digest.count == 16)
     
     let str = digest.reduce("") { str, byte in
