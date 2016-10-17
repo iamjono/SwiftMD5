@@ -1,5 +1,5 @@
 import XCTest
-import SwiftMD5
+@testable import SwiftMD5
 
 class SwiftMD5Tests: XCTestCase {
     func testMD5() {
@@ -41,3 +41,15 @@ class SwiftMD5Tests: XCTestCase {
         XCTAssertEqual("abc".md5Digest, [144, 1, 80, 152, 60, 210, 79, 176, 214, 150, 63, 125, 40, 225, 127, 114])
     }
 }
+
+extension SwiftMD5Tests {
+	static var allTests : [(String, (SwiftMD5Tests) -> () throws -> ())] {
+		return [
+			("testMD5", testMD5),
+			("testMD5Checksum", testMD5Checksum),
+			("testEncodeMD5Digest", testEncodeMD5Digest),
+			("testMD5Digest", testMD5Digest)
+		]
+	}
+}
+
