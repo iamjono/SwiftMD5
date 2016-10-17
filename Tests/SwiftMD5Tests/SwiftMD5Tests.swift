@@ -40,9 +40,7 @@ class SwiftMD5Tests: XCTestCase {
         XCTAssertEqual("md5".md5Digest, [27, 194, 155, 54, 246, 35, 186, 130, 170, 246, 114, 79, 211, 177, 103, 24])
         XCTAssertEqual("abc".md5Digest, [144, 1, 80, 152, 60, 210, 79, 176, 214, 150, 63, 125, 40, 225, 127, 114])
     }
-}
 
-extension SwiftMD5Tests {
 	static var allTests : [(String, (SwiftMD5Tests) -> () throws -> ())] {
 		return [
 			("testMD5", testMD5),
